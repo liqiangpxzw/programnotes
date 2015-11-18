@@ -1,0 +1,10 @@
+cn.gyyx.action.wdlogdata
+http://localhost:8080/action-ui/wd_log/install?ip=10.3.4.34&mac=7446a0c4b2a0&ver=1.57.0901
+
+http://localhost:8080/action-ui/wd_log/uninstall?ip=10.3.4.34&mac=7446a0c4b2a0&ver=1.57.0901
+
+20151113_wdlog_record_v1.0
+
+http://localhost:8080/action-ui/wd_log/install?ip=10.3.4.34&mac=7446a0c4b2a0&ver=1.57.0901&timestamp=1456789445&sign=154ac39e126bc064fe02df1b8e2dbabb&sign_type=MD5
+
+http://localhost:8080/action-ui/wd_log/uninstall?ip=10.3.4.34&mac=7446a0c4b2a0&ver=1.57.0901&timestamp=1456789445&sign=154ac39e126bc064fe02df1b8e2dbabb&sign_type=MD5
