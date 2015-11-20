@@ -1,0 +1,9 @@
+1.安装时，要修改默认路径，无空格和中文字符
+  JDK路径：	D:\Java\jdk1.7.0_60\bin
+  JRE路径：	D:\Java\jre7\bin
+  JAVA_HOME 	D:\Java\jdk1.7.0_60
+  PATH	  	D:\Java\jdk1.7.0_60\bin;
+2.卸载可以用控制面板
+3.安装的时候不安装JRE的问题：
+  电脑里已经安装过，去控制面板卸载；
+  还不行需到注册表里清空有关JAVA的东西。
