@@ -1,15 +1,3 @@
-/**-------------------------------------------------------------------------
- * 版权所有：北京光宇在线科技有限责任公司 
- * 作者：H!Guo
- * 联系方式：guohai@gyyx.cn 
- * 创建时间： 2014/8/19 18:37:16 
- * 版本号：v1.0 
- * 本类主要用途描述： 
- * MD5算法
- * ------------------------------------------------------------------------*/
-
-package cn.gyyx.core.security;
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
