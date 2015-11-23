@@ -1,0 +1,55 @@
+1.何为反射机制
+JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；
+对于任意一个对象，都能够调用它的任意一个方法；这种动态获取的信息以及动态调用对象
+的方法的功能称为java语言的反射机制。
+
+2.如何实现
+谈到反射机制，最诱人的莫过于“动态”二字了。接触过C语言的童鞋们都知道，C语言中也
+有个和“动态”搭上边的函数:malloc()函数。其实这里的两个动态是一个意思，都指的是非编
+译时处理，抑或运行时处理。这种机制，可以让程序的弹性增加不少，因为借由此机制，客户
+可以在程序运行时改变一些他关心的性质：分配内存（当然他可能 完全不知道这么做了），
+调用某个类（当然他还是被蒙在鼓里）等。
+
+3.java.lang.Class
+Java程序在运行时，Java运行时系统一直对所有的对象进行所谓的运行时类型标识。这项信息
+纪录了每个对象所属的类。虚拟机通常使用运行时类型信息选准正确方法去执行，用来保存这
+些类型信息的类是Class类。
+也就是说，ClassLoader找到了需要调用的类时（java为了调控内存的调用消耗，类的加载都在
+需要时再进行，很抠但是很有效），就会加载它，然后根据.class文件内记载的类信息来产生一
+个与该类相联系的独一无二的Class对象。该Class对象记载了该类的字段，方法等等信息。以后
+jvm要产生该类的实例，就是根据内存中存在的该Class类所记载的信息（Class对象应该和我所
+了解的其他类一样会在堆内存内产生、消亡）来进行.
+而java中的Class类对象是可以人工自然性的（也就是说开放的）得到的（虽然你无法像其他类
+一样运用构造器来得到它的实例，因为Class对象都是jvm产生的。不过话说回来，客户产生的
+话也是无意义的），而且，更伟大的是，基于这个基础，java实现了反射机制。
+
+4.获取Class对象有三种方式
+1）通过Object类的getClass()方法。例如：
+Class c1 = new String("").getClass();
+2）通过Class类的静态方法——forName()来实现：
+Class c2 = Class.forName("MyObject");
+3）如果T是一个已定义的类型的话，在java中，它的.class文件名：T.class就代表了与其匹配的Class对象，例如：
+Class c3 = Manager.class;
+Class c4 = int.class;
+Class c5 = Double[].class;
+
+5.Class类中存在以下几个重要的方法：
+1）getName()
+一个Class对象描述了一个特定类的特定属性，而这个方法就是返回String形式的该类的简要描述。由于历史原因，对数组的Class对象
+调用该方法会产生奇怪的结果。
+2）newInstance()
+该方法可以根据某个Class对象产生其对应类的实例。需要强调的是，它调用的是此类的默认构造方法。例如：
+MyObject x = new MyObject();
+MyObject y = x.getClass().newInstance();
+3）getClassLoader()
+返回该Class对象对应的类的类加载器。
+4）getComponentType()
+该方法针对数组对象的Class对象，可以得到该数组的组成元素所对应对象的Class对象。例如：
+int[] ints = new int[]{1,2,3};
+Class class1 = ints.getClass();
+Class class2 = class1.getComponentType();
+而这里得到的class2对象所对应的就应该是int这个基本类型的Class对象。
+5）getSuperClass()
+返回某子类所对应的直接父类所对应的Class对象。
+6）isArray()
+判定此Class对象所对应的是否是一个数组对象。
