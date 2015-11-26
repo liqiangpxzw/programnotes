@@ -1,0 +1,20 @@
+1.xml文件和注解方式开发：
+xml文件：增加控制器要增加一行；(不考虑，成本太高)
+注解：指定注解驱动，配置扫描器；
+	  @Controller标识当前类是控制层的一个具体实现；
+	  @RequestMapping放在类和方法上指定访问路径；
+2.快捷键生成getter/setter方法
+shift+alt+s，再r,最后alt+a。
+3.接受参数:
+	HttpServletRequest可以在直接定义在参数的列表，可以使用，不常用；
+	@RequestParam("参数名")参数列表，可以自动转换成参数列表里的类型；
+	自定义对象接收参数(JavaBean)
+	接收数组
+4.向页面传值：
+	返回ModelAndView对象
+	通过Map参数
+	通过Model参数
+5.页面跳转:
+	绝对url
+	本Controller内方法
+	调其他Controller的方法
